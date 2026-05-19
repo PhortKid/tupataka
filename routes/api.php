@@ -159,3 +159,12 @@ Route::post('/tcb-test', function () {
 
 
 );
+
+
+use App\Http\Controllers\Api\CustomerApiController;
+
+Route::get('/customers_stats', [CustomerApiController::class, 'index']);
+Route::post('/customers', [CustomerApiController::class, 'store']);
+// Route ya kusasisha GPS pekee
+Route::patch('/customers/{id}/gps', [CustomerApiController::class, 'updateGps']);
+
