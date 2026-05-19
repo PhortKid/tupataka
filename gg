@@ -1,0 +1,1 @@
+php artisan migrate --path=database/migrations/2026_05_19_202609_create_customers_table.php
