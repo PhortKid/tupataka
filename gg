@@ -1,1 +1,7 @@
 php artisan migrate --path=database/migrations/2026_05_19_202609_create_customers_table.php
+
+
+
+nime modify baadhi ya vitu utaacha hivyohvyo pia kwanza ward,district nregion na street hazijakaa vizuri kwanza  ianze region uta fetch region from this url get /regions  response will be [{"id":1,"name":"IRINGA","description":null,"status":"1","created_at":"2025-08-07T07:40:46.000000Z","updated_at":"2025-08-07T07:40:46.000000Z"},{"id":2,"name":"SINGIDA","description":null,"status":"1","created_at":"2025-12-15T06:15:43.000000Z","updated_at":"2025-12-15T06:15:43.000000Z"}] tae id na name   then itafuta district ambayo zitaonekana zile za region husika link hii 
+
+/districts/by-region/{region_id} utapata district kutokana na region nayo utachukuwa id na name ,then ward /wards/by-district/{district_id}   then /streets/by-ward/{id} na bussiness activity  hii /get_business_activity also tuje gps italeta automatic au kwa upande wa kulia weka button ya detect gps

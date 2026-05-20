@@ -77,6 +77,17 @@ class CustomerApiController extends Controller
         ], 201);
     }
 
+
+    //method to get customer by street id
+    public function getByStreet($street_id): JsonResponse
+    {
+        $customers = Customer::where('street_id', $street_id)->get();   
+        return response()->json([
+            'success' => true,
+            'data' => $customers
+        ], 200);
+    }
+
     /**
      * Njia ya kusasisha GPS coordinates pekee (Update GPS).
      */
