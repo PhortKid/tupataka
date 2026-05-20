@@ -46,7 +46,7 @@ class CustomerApiController extends Controller
             'lastname' => 'nullable|string|max:100',
             'phone_number' => 'nullable|string|max:20',
             'reg_no' => 'nullable|string|unique:customers,reg_no',
-            'user_id' => 'nullable|integer',
+           
             'gps_coordinates' => 'nullable|string',
             'ward_id' => 'nullable|integer',
             'district_id' => 'nullable|integer',
@@ -67,8 +67,17 @@ class CustomerApiController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
+      
+        $data = $request->all();
 
-        $customer = Customer::create($request->all());
+        
+        $data['registered_by'] = Auth::id();
+
+    
+        $customer = Customer::create($data);
+       
+
+      //  $customer = Customer::create($request->all());
 
         return response()->json([
             'success' => true,
