@@ -41,7 +41,7 @@ class CustomerApiController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'fullname_business_name' => 'nullable|string|max:255',
+            'fullname_business_name' => 'required|string|max:255',
             'firstname' => 'nullable|string|max:100',
             'middlename' => 'nullable|string|max:100',
             'lastname' => 'nullable|string|max:100',
