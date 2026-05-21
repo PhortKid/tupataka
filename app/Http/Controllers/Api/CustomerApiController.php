@@ -16,7 +16,8 @@ class CustomerApiController extends Controller
      */
     public function index(): JsonResponse
     {
-        $customers = Customer::latest()->take(3)->select('fullname_business_name', 'customer_type', 'created_at')->get(); //should return only bussiness name,customer type and created at
+        $latest_customers = Customer::latest()->take(3)->select('fullname_business_name', 'customer_type', 'created_at')->get(); 
+        $customers = Customer::all(); 
         $total_registered = $customers->count();
         $today_registered = $customers->where('created_at', '>=', now()->startOfDay())->count();
         $comfirmed_customers = $customers->where('is_confirmed', true)->count();
@@ -25,7 +26,7 @@ class CustomerApiController extends Controller
         $irregular_customers = $customers->where('customer_type', 'irregular')->count();
         return response()->json([
             'success' => true,
-            'customer' => $customers,
+            'customer' => $latest_customers,
             'statistics' => [
                 'total_registered' => $total_registered,
                 'today_registered' => $today_registered,
