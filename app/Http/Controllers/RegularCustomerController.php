@@ -23,7 +23,7 @@ class RegularCustomerController extends Controller
         $regions = \App\Models\Region::where('status','1')->get();
         $wards = \App\Models\Ward::where('status','1')->get();
         $streets= \App\Models\Street::where('status','1')->get();
-        $customers = RegularCustomer::latest()->with(['region', 'district', 'ward', 'street'])->paginate(20);
+        $customers = \App\Models\Customer::latest()->with(['region', 'district', 'ward', 'street'])->paginate(20);
         return view('dashboard.regular_customer.index', compact('customers','districts', 'regions','streets','wards'));
     }
 
