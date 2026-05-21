@@ -141,7 +141,7 @@ class CsvImportController extends Controller
                 'business_activity_id'  => !empty($data['business_activity_id']) ? (int)$data['business_activity_id'] : null,
                 'irregular_amount'      => !empty($data['Malipo']) ? $data['Malipo'] : 0.00,
                 'status'                => 1,
-                'is_confirmed'          => true,
+                'is_confirmed'          => false,
             ]);
 
             $insertedCount++;
