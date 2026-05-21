@@ -104,4 +104,11 @@ class Customer extends Model
     {
         return $this->belongsTo(BusinessActivity::class, 'business_activity_id');
     }
+
+    public function business_activity(): BelongsTo
+    {
+        return $this->belongsTo(BusinessActivity::class, 'business_activity_id');
+    }
+
+    
 }
