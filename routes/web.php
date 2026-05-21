@@ -165,6 +165,15 @@ Route::get('tcb/transactions', [\App\Http\Controllers\TcbController::class, 'ind
     */
 
 
+use App\Http\Controllers\CsvImportController;
+
+// Route ya kuonyesha fomu
+Route::get('/import-customers', [CsvImportController::class, 'showForm'])->name('import.form');
+
+// Route ya ku-process CSV
+Route::post('/import-customers', [CsvImportController::class, 'importCsv'])->name('import.process');
+
+
 
 
 
