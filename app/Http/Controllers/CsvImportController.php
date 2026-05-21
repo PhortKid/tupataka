@@ -133,7 +133,7 @@ class CsvImportController extends Controller
                 'firstname'             => $firstname,
                 'middlename'            => $middlename,
                 'lastname'              => $lastname,
-                'phone_number'          => trim($data['phone_number']),
+                'phone_number'          => '255'.trim($data['phone_number']),
                 'region_id'             => $regionId ?? null,
                 'district_id'           => $districtId ?? null,
                 'ward_id'               => $wardId ?? null,
