@@ -133,7 +133,15 @@ class CsvImportController extends Controller
                 'firstname'             => $firstname,
                 'middlename'            => $middlename,
                 'lastname'              => $lastname,
-                'phone_number'          => '255'.trim($data['phone_number']),
+                'phone_number' => (function($phone) {
+                $phone = trim($phone);
+                // Kama namba inaanza na 0 na ina urefu wa taratibu 10 (mfano: 0712345678)
+                if (strpos($phone, '0') === 0 && strlen($phone) === 10) {
+                    $phone = substr($phone, 1); // Inatandua hiyo 0 ya mwanzo
+                }
+                // Sasa inaongeza 255 mwanzo (iwe ilikuwa taratibu 9 au ile 10 iliyotolewa 0)
+                return '255' . $phone;
+            })($data['phone_number']),
                 'region_id'             => $regionId ?? null,
                 'district_id'           => $districtId ?? null,
                 'ward_id'               => $wardId ?? null,
