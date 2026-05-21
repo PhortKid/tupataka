@@ -43,7 +43,7 @@ class RegularCustomerController extends Controller
             'business_activity_id' => $request->business_activity_id,
             'customer_id' => $request->customer_id,
             'control_number' => '',
-            'status' => '1',
+            'status' =>true,
             ]
      );
 

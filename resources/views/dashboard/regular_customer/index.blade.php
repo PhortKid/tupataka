@@ -8,7 +8,7 @@
       <div class="card">
 
         <div class="card-header">
-          <h5 class="mb-0">Customers List</h5>
+          <h5 class="mb-0">Wanaosubiria uthibitisho</h5>
           
         </div>
 
